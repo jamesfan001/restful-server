@@ -19,7 +19,7 @@ const port = process.env.PORT || 3000;
 app.get("/", (req: Request, res: Response) => {
   res
     .status(200) // Set the response status code to 200 (OK)
-    .json({ message: "Welcome to the Express + TypeScript Server!" });
+    .json({ message: `Welcome to the Express + TypeScript Server! port:${port}` });
 });
 
 // Start the Express server
