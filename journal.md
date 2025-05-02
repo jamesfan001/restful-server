@@ -13,6 +13,8 @@ create index.ts
 Create an .env file in the project directory and set the port to 3000:
 create a .gitignore -> .env node_modulex
 
-git remote add origin git@github.com:jamesfan001/xxx.git
+git remote set-url origin git@github.com:jamesfan001/restful-server.git
 git branch -M main
 git push -u origin main
+
+   

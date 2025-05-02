@@ -1,3 +1,3 @@
 # restful-server
 
-Express with type script
+Express rest api with type script
