@@ -2,6 +2,7 @@ import express, { Request, Response } from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 
+
 dotenv.config(); // Load environment variables from .env file
 
 // Create a new express application instance
