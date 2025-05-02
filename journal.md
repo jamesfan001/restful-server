@@ -17,4 +17,4 @@ git remote set-url origin git@github.com:jamesfan001/restful-server.git
 git branch -M main
 git push -u origin main
 
-   
+git fetch  // fetch changes in main branch
