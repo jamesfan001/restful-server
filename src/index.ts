@@ -22,6 +22,12 @@ app.get("/", (req: Request, res: Response) => {
     .json({ message: `Welcome to the Express + TypeScript Server! PORT:${port}` });
 });
 
+app.get("/test", (req: Request, res: Response) => {
+  res
+    .status(200) // Set the response status code to 200 (OK)
+    .json({ message: `Testing!!!` });
+});
+
 // Start the Express server
 app.listen(port, () => {
   console.log(`The server is running at http://localhost:${port}`);
