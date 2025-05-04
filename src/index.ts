@@ -17,27 +17,7 @@ app.use(express.urlencoded({ extended: true })); // Parse URL-encoded request bo
 const port = process.env.PORT || 3000;
 
 app.use('/api',router)
-//app.use('/api', require()); // Use the router for API routes
 
-// Define the root path with a greeting message
-app.get("/", (req: Request, res: Response) => {
-  res
-    .status(200) // Set the response status code to 200 (OK)
-    // .json({ message: `Welcome to the Express + TypeScript Server! PORT:${port}` });
-    .json({ message: `H E L L O   W O R L D !!!!!` });
-});
-
-app.get("/test", (req: Request, res: Response) => {
-  res
-    .status(200) // Set the response status code to 200 (OK)
-    .json({ message: `Testing!!!` });
-});
-
-app.get("/test2", (req: Request, res: Response) => {
-  res
-    .status(200) // Set the response status code to 200 (OK)
-    .json({ message: `Testing 2!!!` });
-});
 
 // Start the Express server
 app.listen(port, () => {
