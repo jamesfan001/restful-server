@@ -20,7 +20,7 @@ app.get("/", (req: Request, res: Response) => {
   res
     .status(200) // Set the response status code to 200 (OK)
     // .json({ message: `Welcome to the Express + TypeScript Server! PORT:${port}` });
-    .json({ message: `Hello world!!!` });
+    .json({ message: `H E L L O   W O R L D !!!!!` });
 });
 
 app.get("/test", (req: Request, res: Response) => {
