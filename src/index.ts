@@ -1,6 +1,7 @@
 import express, {Router, Request, Response } from "express";
 import dotenv from "dotenv";
 import cors from "cors";
+import router from "./routes";
 
 
 dotenv.config(); // Load environment variables from .env file
@@ -14,6 +15,9 @@ app.use(express.urlencoded({ extended: true })); // Parse URL-encoded request bo
 
 // Set the network port
 const port = process.env.PORT || 3000;
+
+app.use('/api',router)
+//app.use('/api', require()); // Use the router for API routes
 
 // Define the root path with a greeting message
 app.get("/", (req: Request, res: Response) => {
