@@ -1,4 +1,4 @@
-import express, { Request, Response } from "express";
+import express, {Router, Request, Response } from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 
@@ -19,7 +19,8 @@ const port = process.env.PORT || 3000;
 app.get("/", (req: Request, res: Response) => {
   res
     .status(200) // Set the response status code to 200 (OK)
-    .json({ message: `Welcome to the Express + TypeScript Server! PORT:${port}` });
+    // .json({ message: `Welcome to the Express + TypeScript Server! PORT:${port}` });
+    .json({ message: `Hello world!!!` });
 });
 
 app.get("/test", (req: Request, res: Response) => {

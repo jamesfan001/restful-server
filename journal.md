@@ -18,3 +18,23 @@ git branch -M main
 git push -u origin main
 
 git fetch  // fetch changes in main branch
+
+//setup type script configuration
+npx tsc --init
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "outDir": "./dist",
+    "esModuleInterop": true,
+    "strict": true,
+    "resolveJsonModule": true,
+    "baseUrl": ".",
+    "paths": {
+      "": ["node_modules/", "src/types/*"]
+    }
+  },
+  "include": ["src//*"],
+  "exclude": ["node_modules"]
+}
+
