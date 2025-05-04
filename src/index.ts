@@ -28,7 +28,7 @@ app.get("/test", (req: Request, res: Response) => {
     .status(200) // Set the response status code to 200 (OK)
     .json({ message: `Testing!!!` });
 });
-
+  
 // Start the Express server
 app.listen(port, () => {
   console.log(`The server is running at http://localhost:${port}`);
