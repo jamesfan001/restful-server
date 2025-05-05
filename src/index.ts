@@ -2,7 +2,7 @@ import express, {Router, Request, Response } from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import router from "./routes";
-
+import connectDB from "./config/db";
 
 dotenv.config(); // Load environment variables from .env file
 
@@ -12,6 +12,9 @@ const app = express();
 app.use(cors()); // Enable CORS for all routes
 app.use(express.json()); // Parse JSON request bodies
 app.use(express.urlencoded({ extended: true })); // Parse URL-encoded request bodies
+
+// Connect to MongoDB
+connectDB();
 
 // Set the network port
 const port = process.env.PORT || 3000;

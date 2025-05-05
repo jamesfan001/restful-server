@@ -8,7 +8,7 @@
     "dev": "nodemon src/index.ts",
     "testx": "echo \"Error: no test specified\" && exit 1",
     "startx": "npx tsx --env-file=.env --watch  src/index.ts",
-    "startxx": "npx tsx --watch  src/index.ts",
+    "startxx": "npx tsx src/index.ts",
     "buildx": "tsc",
     "startxxx": "node dist/index.js",
     "devx": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts"
@@ -21,12 +21,15 @@
     "cors": "^2.8.5",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
-    "nodemon": "^3.1.10"
+    "express-jwt": "^8.5.1",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.14.1"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",
     "@types/express": "^5.0.1",
-    "@types/node": "^22.15.3"
+    "@types/node": "^22.15.3",
+    "nodemon": "^3.1.10" 
   },
   "type": "module"
 }
