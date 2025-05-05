@@ -1,17 +1,10 @@
-import { Router, Request, Response } from "express";
+import { Router } from "express";
+import { getTestMessage, getTest2Message } from "../controllers/testController";
 
 const testRouter = Router();
 
-testRouter.get("/test", (req: Request, res: Response) => {
-  res
-    .status(200) // Set the response status code to 200 (OK)
-    .json({ message: `API: Testing!!!` });
-});
+testRouter.get("/test", getTestMessage);
 
-testRouter.get("/test2", (req: Request, res: Response) => {
-  res
-    .status(200) // Set the response status code to 200 (OK)
-    .json({ message: `API: Testing 2!!!` });
-});
+testRouter.get("/test2", getTest2Message);
 
 export default testRouter;
