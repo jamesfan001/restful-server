@@ -12,6 +12,9 @@ router.get("/mongoose", (req, res) => {
   res.status(200).json({ message: `API/CONTROLER: mongoose test` });    
 });
 
+router.get("/random.text", (req, res) => {
+  res.status(200).json({ message: `API/CONTROLER: RANDOM.TEXT test` });    
+})
 router.get("/goals", async (req, res) => {
   try {
     const goals = await Goal.find(); // Fetch all goals from the database
