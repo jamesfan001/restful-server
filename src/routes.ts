@@ -2,19 +2,22 @@ import rootRouter from "./routes/root";
 import testRouter from "./routes/test";
 import { Router } from "express";
 import Goal from "./models/goalModel";
+import userRouter from "./routes/userRoutes"; // Import userRouter
 
 const router = Router();
 
 // Use the separated route files
+router.use("/", userRouter);
+
 router.use("/", rootRouter);
 router.use("/", testRouter);
 router.get("/mongoose", (req, res) => {
-  res.status(200).json({ message: `API/CONTROLER: mongoose test` });    
+  res.status(200).json({ message: `API/CONTROLER: mongoose test` });
 });
 
 router.get("/random.text", (req, res) => {
-  res.status(200).json({ message: `API/CONTROLER: RANDOM.TEXT test` });    
-})
+  res.status(200).json({ message: `API/CONTROLER: RANDOM.TEXT test` });
+});
 router.get("/goals", async (req, res) => {
   try {
     const goals = await Goal.find(); // Fetch all goals from the database
