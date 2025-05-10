@@ -6,7 +6,7 @@ const errorHandler = (err: Error, req: Request, res: Response, next: NextFunctio
   res.status(statusCode);
 
   res.json({
-    message: err.message,
+    message: err.message + 'NODE MODE :' + process.env.NODE_ENV,
     stack: process.env.NODE_ENV === 'production' ? null : err.stack,
   });
 };

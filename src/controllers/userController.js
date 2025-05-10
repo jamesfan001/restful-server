@@ -47,7 +47,7 @@ const registerUser = asyncHandler(async (req: Request, res: Response): Promise<v
       _id: user.id,
       name: user.name,
       email: user.email,
-      token: generateToken(user._id as string),
+      token: generateToken(user._id),
     });
   } else {
     res.status(400);
@@ -58,7 +58,7 @@ const registerUser = asyncHandler(async (req: Request, res: Response): Promise<v
 // @desc    Authenticate a user
 // @route   POST /api/users/login
 // @access  Public
-const loginUser = asyncHandler(async (req :Request, res: Response): Promise<void> => {
+const loginUser = asyncHandler(async (req: Request, res: Response): Promise<void> => {
   const { email, password } = req.body;
 
   // Check for user email
@@ -69,11 +69,10 @@ const loginUser = asyncHandler(async (req :Request, res: Response): Promise<void
       _id: user.id,
       name: user.name,
       email: user.email,
-      token: generateToken(user._id as string), // Cast _id to string
+      token: generateToken(user._id),
     });
   } else {
-    res.status(400)//.json({ message: 'Invalid credentials' });
-
+    res.status(400);
     throw new Error('Invalid credentials');
   }
 });
