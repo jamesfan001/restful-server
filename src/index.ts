@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import connectDB from "./config/db";
 import router from "./routes"; // Import the router module
+
 import { errorHandler } from "./middleware/errorMiddleware"; // Import the error handler middleware
 
 dotenv.config(); // Load environment variables from .env file
