@@ -3,7 +3,7 @@
 import { Router } from "express";
 import userRoutes from "./routes/userRoutes"; // Import user routes
 const router = Router();
-
+ 
 
 router.use("/users", userRoutes); // Use the user routes for all requests to /api/users{
 
