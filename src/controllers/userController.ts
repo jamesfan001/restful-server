@@ -4,13 +4,14 @@ import asyncHandler from 'express-async-handler';
 import { Request, Response } from 'express';
 import User from '../models/userModel';
 
-interface UserRequest extends Request {
+interface AuthenticatedRequest extends Request {
   user?: {
     id: string;
     name: string;
     email: string;
   };
 }
+
 
 // @desc    Register new user
 // @route   POST /api/users
@@ -47,7 +48,7 @@ const registerUser = asyncHandler(async (req: Request, res: Response): Promise<v
       _id: user.id,
       name: user.name,
       email: user.email,
-      token: generateToken(user._id as string),
+      token: generateToken(user._id),
     });
   } else {
     res.status(400);
@@ -58,7 +59,7 @@ const registerUser = asyncHandler(async (req: Request, res: Response): Promise<v
 // @desc    Authenticate a user
 // @route   POST /api/users/login
 // @access  Public
-const loginUser = asyncHandler(async (req :Request, res: Response): Promise<void> => {
+const loginUser = asyncHandler(async (req: Request, res: Response): Promise<void> => {
   const { email, password } = req.body;
 
   // Check for user email
@@ -69,19 +70,23 @@ const loginUser = asyncHandler(async (req :Request, res: Response): Promise<void
       _id: user.id,
       name: user.name,
       email: user.email,
-      token: generateToken(user._id as string), // Cast _id to string
+      token: generateToken(user._id ),
     });
   } else {
-    res.status(400)//.json({ message: 'Invalid credentials' });
-
-    throw new Error('Invalid credentials');
+    res.status(400);
+    throw new Error('Unauthorized');
   }
 });
 
 // @desc    Get user data
 // @route   GET /api/users/me
 // @access  Private
-const getMe = asyncHandler(async (req: UserRequest, res: Response): Promise<void> => {
+const getMe = asyncHandler(async (req: AuthenticatedRequest, res: Response): Promise<void> => {
+  if (!req.user) {
+    res.status(401);
+    throw new Error('Not authorized');
+  }
+
   res.status(200).json(req.user);
 });
 

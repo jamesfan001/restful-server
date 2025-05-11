@@ -13,7 +13,7 @@ router.post('/login', loginUser);
 // router.post('/login', (req, res) => {
 //   res.status(200).json({ message: 'Login successful' });
 // });
-// router.get('/me', getMe);
+router.get('/me', getMe);
 // router.get('/me', protect, getMe);
 
 export default router;

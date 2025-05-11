@@ -7,17 +7,22 @@ import { errorHandler } from "./middleware/errorMiddleware"; // Import the error
 
 dotenv.config(); // Load environment variables from .env file
 
-const app = express();
+connectDB();// Connect to MongoDB
+
+const app = express();// Create an Express application
 
 app.use(cors()); // Enable CORS for all routes
 app.use(express.json()); // Parse JSON request bodies
 app.use(express.urlencoded({ extended: true })); // Parse URL-encoded request bodies
-app.use(errorHandler); // Use the error handler middleware
-// Connect to MongoDB
-connectDB();
+
+
 
 
 app.use('/api',router)
+
+//Ensure the error handler is placed after all routes and other middleware:
+app.use(errorHandler); // Use the error handler middleware
+
 // app.get("/api", (req, res) => {
 //   res.status(200).json({ message: "API server is working!!!!" })
 //   });
