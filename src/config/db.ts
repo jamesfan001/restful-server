@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
 import dotenv from "dotenv";
+import colors from "colors"; // Import colors for colored console output
 
 dotenv.config(); // Load environment variables from .env file
 
@@ -11,17 +12,16 @@ const connectDB = async () => {
       throw new Error("MongoDB URI is not defined in environment variables");
     }
 
-    await mongoose.connect(mongoURI, {
-      // useNewUrlParser: true,
-      // useUnifiedTopology: true,
+    const conn = await mongoose.connect(mongoURI, {
+      // Optional: Add any additional options you need for your connection
     });
-
-    console.log("MongoDB connected successfully");
+    console.log(
+      colors.cyan.underline(`MongoDB Connected: ${conn.connection.host}`)
+    ); // Log success message in green
   } catch (error) {
-    console.error("Error connecting to MongoDB: "+error + error); // Log the error message
+    console.error(colors.yellow(""+error)); // Log the error message
     process.exit(1); // Exit process with failure
   }
 };
 
 export default connectDB;
-

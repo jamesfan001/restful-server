@@ -14,8 +14,8 @@ const errorHandler = (err: Error, req: Request, res: Response, next: NextFunctio
   res.status(statusCode);
 
   res.json({
-    message: err.message + '    NODE MODE :' + process.env.NODE_ENV,
-    stack: process.env.NODE_ENV === 'production' ? null : err.stack,
+    message: err.message ,
+    stack: process.env.NODE_ENV === 'productionx' ? null : err.stack,
   });
 };
 

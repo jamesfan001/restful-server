@@ -4,10 +4,10 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "start": "node dist/index.js",
+    "startx": "node dist/index.js",
     "dev": "nodemon src/index.ts",
     "testx": "echo \"Error: no test specified\" && exit 1",
-    "startx": "npx tsx --env-file=.env --watch  src/index.ts",
+    "start": "npx tsx --env-file=.env  --watch src/index.ts",
     "startxx": "npx tsx src/index.ts",
     "buildx": "tsc",
     "startxxx": "node dist/index.js",
@@ -19,6 +19,7 @@
   "description": "",
   "dependencies": {
     "bcryptjs": "^3.0.2",
+    "colors": "^1.4.0",
     "cors": "^2.8.5",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",

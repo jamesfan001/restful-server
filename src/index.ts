@@ -9,15 +9,12 @@ dotenv.config(); // Load environment variables from .env file
 
 connectDB();// Connect to MongoDB
 
-const app = express();// Create an Express application
+// Create an Express application
+const app = express(); 
 
 app.use(cors()); // Enable CORS for all routes
 app.use(express.json()); // Parse JSON request bodies
 app.use(express.urlencoded({ extended: true })); // Parse URL-encoded request bodies
-
-
-
-
 app.use('/api',router)
 
 //Ensure the error handler is placed after all routes and other middleware:
@@ -36,6 +33,7 @@ const port = process.env.PORT || 3000;
 
 // app.use('/api',router)
 // app.use('/api/users', require('./routes/userRoutes'));
+
 // Start the Express server
 app.listen(port, () => {
   console.log(`The server is running at http://localhost:${port}`);

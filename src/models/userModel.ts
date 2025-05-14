@@ -5,6 +5,7 @@ interface IUser extends Document {
   name: string;
   email: string;
   password: string;
+  remarks?: string;
   createdAt?: Date;
   updatedAt?: Date;
 }
@@ -23,6 +24,10 @@ const userSchema: Schema = new Schema(
     password: {
       type: String,
       required: [true, 'Please add a password'],
+    },
+    remarks: {
+      type: String,
+      default: 'No remarks',
     },
   },
   {
