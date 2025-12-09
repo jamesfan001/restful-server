@@ -1,39 +1,32 @@
-import mongoose, { Schema, Document } from 'mongoose';
 
-interface IUser extends Document {
-  _id: string; // Explicitly define the _id field
-  name: string;
-  email: string;
-  password: string;
-  remarks?: string;
-  createdAt?: Date;
-  updatedAt?: Date;
+import mongoose, { Document, Schema } from 'mongoose';
+
+export interface IUser extends Document {
+  OID: number;
+  TableName: string;
+  User?: string;
+  FullName?: string;
+  Pwd?: string;
+  Level?: number;
+  Showed?: boolean;
+  Ext?: string;
+  EMail?: string;
+  StationID?: string;
+  Payroll?: boolean;
 }
 
-const userSchema: Schema = new Schema(
-  {
-    name: {
-      type: String,
-      required: [true, 'Please add a name'],
-    },
-    email: {
-      type: String,
-      required: [true, 'Please add an email'],
-      unique: true,
-    },
-    password: {
-      type: String,
-      required: [true, 'Please add a password'],
-    },
-    remarks: {
-      type: String,
-      default: 'No remarks',
-    },
-  },
-  {
-    timestamps: true,
-  }
-);
+const UserSchema: Schema = new Schema({
+  OID: { type: Number, unique: true, required: true },
+  TableName: { type: String, required: true, default: 'RESU' },
+  User: { type: String, maxlength: 40 },
+  FullName: { type: String, maxlength: 40 },
+  Pwd: { type: String, maxlength: 20 },
+  Level: { type: Number },
+  Showed: { type: Boolean, default: false },
+  Ext: { type: String, maxlength: 10 },
+  EMail: { type: String, maxlength: 50 },
+  StationID: { type: String, maxlength: 20 },
+  Payroll: { type: Boolean, default: false },
+});
 
-const User = mongoose.model<IUser>('User', userSchema);
-export default User;
+export default mongoose.model<IUser>('User', UserSchema);

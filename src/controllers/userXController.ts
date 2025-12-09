@@ -2,7 +2,7 @@ import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
 import asyncHandler from "express-async-handler";
 import { Request, Response } from "express";
-import User from "../models/userModel";
+import User from "../models/userXModel";
 
 interface AuthenticatedRequest extends Request {
   user?: {
