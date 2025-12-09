@@ -7,7 +7,7 @@ const router = Router();
 router.use("/users", userRoutes); // Use the user routes for all requests to /api/users{
 
 router.get("/test", (req, res) => {
-  res.status(200).json({ message: "A PI SERVER IS STILL WORKING!!!!" });
+  res.status(200).json({ message: "API SERVER IS STILL WORKING!!!!" });
   // res.status(200).json({ message: "API server is still working!!!!" })
 });
 
