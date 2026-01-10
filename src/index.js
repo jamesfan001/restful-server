@@ -19,7 +19,7 @@ app.use('/api/users', userRoutes);
 const port = process.env.PORT || 3000;
 
 app.listen(port, () => {
-  console.log(`The server is running at http://localhost:${port}`);
+  console.log(`The Server Is Running @ http://localhost:${port}`);
 });
 
 export default app;

@@ -1,28 +1,27 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
 // import rootRouter from "./routes/root";
 // import testRouter from "./routes/test";
-import { Router } from "express";
-import userRoutes from "./routes/userRoutes"; // Import user routes
-const router = Router();
-
-router.use("/users", userRoutes); // Use the user routes for all requests to /api/users{
-
+const express_1 = require("express");
+const userXRoutes_1 = __importDefault(require("./routes/userXRoutes")); // Import user routes
+const router = (0, express_1.Router)();
+router.use("/users", userXRoutes_1.default); // Use the user routes for all requests to /api/users{
 router.get("/test", (req, res) => {
-  res.status(200).json({ message: "R E S T F U L - S E R V E R   I S  W O R K I N G !!!!" });
-  // res.status(200).json({ message: "API server is still working!!!!" })
+    res.status(200).json({ message: "S E R V E R   I S  W O R K I N G !!!!" });
+    // res.status(200).json({ message: "API server is still working!!!!" })
 });
-
-export default router;
+exports.default = router;
 // This file serves as the main router for the application, combining all route modules into a single router.
 // It imports the root and test routers and uses them to define the application's routes.
-
 // // Use the separated route files
-
 // router.use("/", rootRouter);
 // router.use("/", testRouter);
 // router.get("/mongoose", (req, res) => {
 //   res.status(200).json({ message: `API/CONTROLER: mongoose test` });
 // });
-
 // router.get("/random.text", (req, res) => {
 //   res.status(200).json({ message: `API/CONTROLER: RANDOM.TEXT test` });
 // });
