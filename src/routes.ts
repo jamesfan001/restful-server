@@ -7,7 +7,7 @@ const router = Router();
 router.use("/users", userRoutes); // Use the user routes for all requests to /api/users{
 
 router.get("/test", (req, res) => {
-  res.status(200).json({ message: "**** O N L I N E ****" });
+  res.status(200).json({ message: "** O N L I N E " +process.cwd() + " **" });
   // res.status(200).json({ message: "API server is still working!!!!" })
 });
 
